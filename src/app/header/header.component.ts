@@ -8,8 +8,10 @@ import * as firebase from 'firebase';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  user: firebase.User;
+
   constructor(private afAuth: AngularFireAuth) {
-    afAuth.authState.subscribe(x => console.log(x));
+    afAuth.authState.subscribe(user => console.log((this.user = user)));
   }
 
   ngOnInit() {}

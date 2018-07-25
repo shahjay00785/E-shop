@@ -19,10 +19,15 @@
 
       </ul>
       <ul class="navbar-nav navbar-right">
-        <li class="nav-item">
+        <li *ngIf="!user" class="nav-item">
           <a class="nav-link" routerLink="/login">Login</a>
         </li>
-        <li class="nav-item">
+
+
+
+        <li *ngIf="user" class="nav-item">
+          <p> {{ user.displayName }}
+          </p>
           <a class="nav-link" (click)="logout()">Logout</a>
         </li>
       </ul>
