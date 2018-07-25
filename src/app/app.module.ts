@@ -1,3 +1,4 @@
+import { AdminAuthGuardService } from './admin-auth-guard.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -14,6 +15,8 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { ProductsComponent } from './products/products.component';
 import { LoginComponent } from './login/login.component';
+import { AuthService } from './auth.service';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,8 @@ import { LoginComponent } from './login/login.component';
     HomeComponent,
     HeaderComponent,
     ProductsComponent,
-    LoginComponent
+    LoginComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
@@ -37,10 +41,15 @@ import { LoginComponent } from './login/login.component';
       {
         path: 'login',
         component: LoginComponent
+      },
+      {
+        path: 'check-out',
+        component: CheckoutComponent,
+        canActivate: [AdminAuthGuardService]
       }
     ])
   ],
-  providers: [],
+  providers: [AuthService, AdminAuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

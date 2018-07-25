@@ -1,6 +1,7 @@
-import { Observable, Subject, ReplaySubject, from, of, range } from 'rxjs';
+import { AuthService } from './../auth.service';
+//import { Observable, Subject, ReplaySubject, from, of, range } from 'rxjs';
 import { map, filter, switchMap } from 'rxjs/operators';
-import { AngularFireAuth } from 'angularfire2/auth';
+//import { AngularFireAuth } from 'angularfire2/auth';
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 
@@ -12,16 +13,16 @@ import * as firebase from 'firebase';
 export class HeaderComponent implements OnInit {
   //user: firebase.User;
   //user: Observable<firebase.User>;
-  user$: Observable<firebase.User>;
+  //user$: Observable<firebase.User>;
 
-  constructor(private afAuth: AngularFireAuth) {
+  constructor(public auth: AuthService /*AngularFireAuth*/) {
     //  afAuth.authState.subscribe(user => console.log((this.user = user)));
-    this.user$ = this.afAuth.authState;
+    //this.user$ = this.afAuth.authState;
   }
 
   ngOnInit() {}
 
   logout() {
-    this.afAuth.auth.signOut();
+    this.auth.logout();
   }
 }
