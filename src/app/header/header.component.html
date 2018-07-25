@@ -19,13 +19,18 @@
 
       </ul>
       <ul class="navbar-nav navbar-right">
-        <li *ngIf="!user" class="nav-item">
+        <!-- with out ng template
+        <li *ngIf="!(user$ | async)" class="nav-item">
           <a class="nav-link" routerLink="/login">Login</a>
         </li>
+      -->
+        <ng-template #otherUser>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login">Login</a>
+          </li>
+        </ng-template>
 
-
-
-        <li *ngIf="user" class="nav-item">
+        <li *ngIf="user$ | async as user; else otherUser" class="nav-item">
           <p> {{ user.displayName }}
           </p>
           <a class="nav-link" (click)="logout()">Logout</a>
