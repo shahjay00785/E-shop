@@ -1,3 +1,4 @@
+import { AuthGuardService } from './auth-guard.service';
 import { AdminAuthGuardService } from './admin-auth-guard.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
@@ -45,11 +46,11 @@ import { CheckoutComponent } from './checkout/checkout.component';
       {
         path: 'check-out',
         component: CheckoutComponent,
-        canActivate: [AdminAuthGuardService]
+        canActivate: [AuthGuardService]
       }
     ])
   ],
-  providers: [AuthService, AdminAuthGuardService],
+  providers: [AuthService, AuthGuardService, AdminAuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
