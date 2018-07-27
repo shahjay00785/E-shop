@@ -22,9 +22,9 @@
         <li ngbDropdown *ngIf="auth.user$ | async as user; else otherUser" class="nav-item">
           <a ngbDropdownToggle>{{ user.displayName }} </a>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-            <button class="dropdown-item">My Order</button>
-            <button class="dropdown-item">My Product</button>
-            <button (click)="logout()" class="dropdown-item">Logout</button>
+            <a class="dropdown-item">My Order</a>
+            <a routerLink="/add-products" class="dropdown-item">My Product</a>
+            <a (click)="logout()" class="dropdown-item">Logout</a>
           </div>
         </li>
 

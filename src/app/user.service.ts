@@ -15,6 +15,14 @@ export class UserService {
   // userList: AngularFireList<any>;
   //itemsRef: AngularFireList<AppUser>;
 
+  categoriesList: AngularFireList<any>;
+
+  getData(id: any) {
+    let uid: any = id;
+    this.categoriesList = this.db.list('categories');
+    return this.categoriesList;
+  }
+
   constructor(private db: AngularFireDatabase) {
     // this.userList = this.db.list('users');
   }
@@ -26,5 +34,11 @@ export class UserService {
     });
   }
 
-  get(uid: String, userId: firebase.User) {}
+  //get(uid: String, userId: firebase.User) {}
+
+  /*
+  get(uid: string): AngularFireList<AppUser> { 
+    return this.db.object('/users/' + uid);
+  }
+  */
 }

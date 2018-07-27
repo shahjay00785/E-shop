@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class AuthService {
   user$: Observable<firebase.User>;
 
-  constructor(private afAuth: AngularFireAuth, private router: ActivatedRoute) {
+  constructor(private afAuth: AngularFireAuth, private router: ActivatedRoute,) {
     this.user$ = this.afAuth.authState;
   }
 
@@ -25,4 +25,14 @@ export class AuthService {
   logout() {
     this.afAuth.auth.signOut();
   }
+  /*
+  get appUser$() : Observable<AppUser> {
+    return this.user$
+      .switchMap(user => {
+        if (user) return this.userService.get(user.uid);
+
+        return Observable.of(null);
+      });    
+  }
+9*/
 }

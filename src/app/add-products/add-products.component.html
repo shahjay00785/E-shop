@@ -1,0 +1,29 @@
+<div class="container my-5">
+  <form>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" id="title" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <div class="input-group">
+        <span class="input-group-addon">₹</span>
+        <input type="number" id="price" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="category">Category</label>
+      <select name="" id="">
+        <option *ngFor="let item of categories | async" [value]="item.$key">{{ item.name }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="imageUrl">Image</label>
+      <input type="text" id="imageUrl" class="form-control">
+    </div>
+    <button class="btn-primary">
+      Submit
+    </button>
+  </form>
+
+</div>

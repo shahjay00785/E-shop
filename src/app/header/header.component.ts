@@ -1,3 +1,4 @@
+import { AppUser } from './../models/app-user';
 import { AuthService } from './../auth.service';
 //import { Observable, Subject, ReplaySubject, from, of, range } from 'rxjs';
 import { map, filter, switchMap } from 'rxjs/operators';
@@ -15,9 +16,12 @@ export class HeaderComponent implements OnInit {
   //user: Observable<firebase.User>;
   //user$: Observable<firebase.User>;
 
+  appUser: AppUser;
+
   constructor(public auth: AuthService /*AngularFireAuth*/) {
     //  afAuth.authState.subscribe(user => console.log((this.user = user)));
     //this.user$ = this.afAuth.authState;
+    //    auth.appUser$.subscribe(appUser => this.appUser = appUser);
   }
 
   ngOnInit() {}

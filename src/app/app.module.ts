@@ -1,3 +1,4 @@
+import { CategoriesService } from './shared/categories.service';
 import { AuthGuardService } from './auth-guard.service';
 import { AdminAuthGuardService } from './admin-auth-guard.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,6 +19,7 @@ import { ProductsComponent } from './products/products.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { AddProductsComponent } from './add-products/add-products.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     HeaderComponent,
     ProductsComponent,
     LoginComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    AddProductsComponent
   ],
   imports: [
     BrowserModule,
@@ -47,10 +50,19 @@ import { CheckoutComponent } from './checkout/checkout.component';
         path: 'check-out',
         component: CheckoutComponent,
         canActivate: [AuthGuardService]
+      },
+      {
+        path: 'add-products',
+        component: AddProductsComponent
       }
     ])
   ],
-  providers: [AuthService, AuthGuardService, AdminAuthGuardService],
+  providers: [
+    AuthService,
+    AuthGuardService,
+    AdminAuthGuardService,
+    CategoriesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
