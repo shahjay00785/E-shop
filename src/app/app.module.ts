@@ -1,10 +1,11 @@
+import { AddProductService } from './shared/add-product.service';
 import { CategoriesService } from './shared/categories.service';
 import { AuthGuardService } from './auth-guard.service';
 import { AdminAuthGuardService } from './admin-auth-guard.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 
 import { AngularFireModule } from 'angularfire2';
@@ -37,6 +38,7 @@ import { AddProductsComponent } from './add-products/add-products.component';
     NgbModule.forRoot(),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -61,7 +63,8 @@ import { AddProductsComponent } from './add-products/add-products.component';
     AuthService,
     AuthGuardService,
     AdminAuthGuardService,
-    CategoriesService
+    CategoriesService,
+    AddProductService
   ],
   bootstrap: [AppComponent]
 })
